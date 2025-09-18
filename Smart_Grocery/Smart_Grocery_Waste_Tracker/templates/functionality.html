@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Grocery Waste Tracker – Functionality</title>
+    <!-- Optional: Bootstrap for quick styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'Styles/style.css' %}">
+</head>
+<body style="background-color:#f8f9fa;">
+
+    <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #a9cae3;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'images/icon.jpg' %}" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}"><b>About</b></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <b>Features</b>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'functionality' %}">Functionality</a></li>
+                            <li><a class="dropdown-item" href="{% url 'how_it_works' %}">How it works</a></li>
+                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}"><b>Contact Us</b></a>
+                    </li>
+                    </li>
+
+                </ul>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <a href="{% url 'login' %}" class="btn btn-outline-success btn-lg">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">Register</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Smart Grocery Waste Tracker – Functionality</h1>
+        <p class="lead text-center">
+            Overview of the key operations and logic of the project.
+        </p>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+<pre><code>
+1. User Registration & Login
+   - Users create accounts and log in securely.
+   - Uses Django’s built-in authentication with hashed passwords.
+
+2. Add & Manage Grocery Items
+   - Add items with name, quantity, expiry date, and category.
+   - Edit or delete items anytime.
+   - Data is saved to the GroceryItem model in MySQL.
+
+3. Expiry Reminders
+   - Daily background task checks for items expiring in 2 days.
+   - Sends email or in-app notifications.
+
+4. Mark Items as Wasted
+   - Move expired items to WastedGroceryItem with reason and date.
+
+5. Waste Analytics Dashboard
+   - Aggregates data and displays charts using Chart.js/Plotly.
+
+6. Search & Filter
+   - Quickly find items by name, category, or expiry range.
+
+7. Responsive Web Interface
+   - Django templates + Bootstrap provide a mobile-friendly layout.
+</code></pre>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-section about">
+                <h3>Grocery Waste Manager</h3>
+                <p>Track groceries, reduce waste, and support a sustainable lifestyle.</p>
+            </div>
+
+            <div class="footer-section links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact">
+                <h4>Contact</h4>
+                <p>Email: support@grocerywasteapp.com</p>
+                <p>Phone: +91-9876543210</p>
+                <p>Location: Pune, India</p>
+            </div>
+
+            <div class="footer-section social">
+                <h4>Follow Us</h4>
+                <a href="https://www.facebook.com/yourpage" aria-label="Facebook" target="_blank" rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+    <title>Facebook</title>
+    <path fill="#1877F2" d="M24 4C12.95 4 4 12.95 4 24c0 9.95 7.31 18.21 16.88 19.78V29.5h-5.08V24h5.08v-4.1c0-5.02 3-7.77 7.53-7.77 2.18 0 4.46.39 4.46.39v4.9h-2.51c-2.48 0-3.25 1.54-3.25 3.12V24h5.54l-.89 5.5h-4.65v14.28C36.69 42.21 44 33.95 44 24c0-11.05-8.95-20-20-20z"/>
+    <path fill="#fff" d="M30.47 29.5 31.36 24h-5.54v-3.56c0-1.58.77-3.12 3.25-3.12h2.51v-4.9s-2.28-.39-4.46-.39c-4.53 0-7.53 2.75-7.53 7.77V24h-5.08v5.5h5.08v14.28c1.65.26 3.35.39 5.08.39s3.43-.13 5.08-.39V29.5h4.65z"/>
+  </svg>
+</a>
+               <!-- Instagram SVG (simple camera outline) -->
+<a href="https://www.instagram.com/yourprofile" aria-label="Instagram" target="_blank" rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+    <title>Instagram</title>
+    <radialGradient id="IG-gradient" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd5"/>
+      <stop offset=".5" stop-color="#ff543e"/>
+      <stop offset="1" stop-color="#c837ab"/>
+    </radialGradient>
+    <path fill="url(#IG-gradient)" d="M34.017 41.985H13.983C8.486 41.985 4 37.5 4 32.003V11.97C4 6.472 8.486 1.987 13.983 1.987h20.034C39.514 1.987 44 6.472 44 11.97v20.033c0 5.497-4.486 9.982-9.983 9.982z"/>
+    <path fill="#fff" d="M24 12.093c-6.55 0-11.907 5.357-11.907 11.907S17.45 35.907 24 35.907 35.907 30.55 35.907 24 30.55 12.093 24 12.093zm0 19.59a7.683 7.683 0 1 1 0-15.367 7.683 7.683 0 0 1 0 15.367zM36.8 12.48a2.8 2.8 0 1 1-5.6 0 2.8 2.8 0 0 1 5.6 0z"/>
+  </svg>
+</a>
+
+
+<!-- LinkedIn SVG -->
+<a href="https://www.linkedin.com/in/yourprofile" aria-label="LinkedIn" target="_blank" rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 48 48">
+    <title>LinkedIn</title>
+    <path fill="#0A66C2" d="M42 37.5c0 2.5-2 4.5-4.5 4.5h-27C8 42 6 40 6 37.5v-27C6 8 8 6 10.5 6h27C40 6 42 8 42 10.5v27z"/>
+    <path fill="#fff" d="M12 19h5v17h-5zM14.5 11a2.9 2.9 0 1 0 0 5.8 2.9 2.9 0 0 0 0-5.8zM20 19h4.8v2.5h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.2 3.4 6.2 7.8V36h-5v-8.2c0-2 0-4.5-2.7-4.5s-3.1 2.1-3.1 4.3V36H20z"/>
+  </svg>
+</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Grocery Waste Manager. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optional Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

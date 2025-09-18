@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'Styles/style.css' %}">
+    <style>
+       .login-body {
+           background-image: url("{% static 'images/shop3.jpg' %}");
+       }
+</style>
+
+</head>
+
+<body class="login-body">
+    <div class="login-box">
+        <img src="{% static 'images/logo.jpg' %}" class="logo" alt="Logo">
+        <h1>Login Page</h1>
+
+        <!-- Show messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:{% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                    {{ message }}
+                </p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter your name" autocomplete="off" required><br /><br />
+
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" autocomplete="off" required><br /><br />
+
+            <button type="submit">Login</button>
+        </form>
+
+        <h4>If not register ? <a href="{% url 'register' %}">Register Here</a></h4>
+    </div>
+{% if messages %}
+<script>
+    {% for message in messages %}
+        alert("{{ message|escapejs }}");
+    {% endfor %}
+</script>
+{% endif %}
+
+</body>
+</html>

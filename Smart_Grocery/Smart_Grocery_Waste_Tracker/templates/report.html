@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Grocery Waste Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+    <h2 class="text-center">Wasted Items Report</h2>
+
+    <div class="my-4">
+        {{ reason_chart|safe }}
+    </div>
+
+    <div class="my-4">
+        {{ daily_chart|safe }}
+    </div>
+
+    <div class="my-4">
+        {{ wasted_items_chart|safe }}
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

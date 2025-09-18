@@ -1,0 +1,739 @@
+.nav-item{
+    display: flex;
+    margin-right: 30px;
+    list-style: none;
+    font-size: 25px;
+}
+.carousel-caption-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(194, 221, 245);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+.carousel-caption-center h2 {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.carousel-caption-center p {
+    font-size: 2rem;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 40px 20px 10px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.footer-section h3, .footer-section h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-section p, .footer-section a {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #00c853;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.footer-section.social a img {
+  width: 24px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/*For Background Images*/
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.login-body{
+    /*background-image: url("../images/shop3.jpg");*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/*For login box*/
+.login-box{
+    background-color: rgb(224, 223, 222);
+    border-radius: 10px;
+    padding: 0px 30px 40px 30px;
+    margin: 150px 475px 200px 500px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 3px solid #070707;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    top: -50px;
+    transform: translateY(-60%);
+}
+
+h1{
+    margin-top: 2px;
+}
+
+/* Register */
+
+.register-body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff; /* or your preferred background */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  /*position: relative;*/
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  /*margin:60px 475px 200px 500px;
+  position: fixed;*/
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 550;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #00bfff;
+}
+
+.title::before {
+  width: 10px;
+  height: 10px;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #00bfff;
+}
+
+.message,
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.signin a {
+  color: #00bfff;
+}
+
+/*.flex {
+  display: flexbox;
+  width: 100%;
+  gap: 6px;
+} */
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 12px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #00bfff;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #00bfff;
+}
+
+.submit:hover {
+  background-color: #00bfff96;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/*add item*/
+body {
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  background: white;
+  border-radius: 12px;
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #45a049;
+}
+
+/*contact us*/
+
+/* Body */
+.contact-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f6fb;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.contact-container {
+    max-width: 700px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.contact-heading {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Description */
+.contact-description {
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+}
+
+.contact-page{
+    /*background-image: url("../images/contact.jpg");*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+/*about*/
+.about-body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+
+/* Hero Section */
+.hero-section {
+  height: 15vh;
+  background: url('../assets/hero-about.jpg') center center/cover no-repeat;
+  position: relative;
+}
+
+.hero-heading {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-subtext {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+
+/* Main Content Sections */
+.about-content {
+  max-width: 1200px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin-bottom: 15px;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-img {
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.about-img:hover {
+  transform: scale(1.03);
+}
+
+/* Goals List */
+.goals-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.05rem;
+}
+
+.goals-list li::before {
+  content: "✔️ ";
+  margin-right: 8px;
+  color: #28a745;
+}
+
+/* Footer */
+.about-footer {
+  font-size: 0.95rem;
+}
+
+/*Profile*/
+.dashboard-card {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  border-radius: 1rem;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 3px solid #28a745;
+}
+
+.stat-box {
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  transition: 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.profile{
+    /*background-image: url("../images/profile.jpeg");*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/*view_item*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #28a745;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  max-width: 250px;
+  margin: 10px;
+}
+
+.footer-section h4,
+.footer-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #555;
+  margin-top: 20px;
+}
+
+.footer-section img {
+  width: 30px;
+  margin-right: 5px;
+}
+
+/* Container for Mark Wasted form */
+table td form {
+    display: flex;
+    flex-direction: column;  /* stack input + select + button vertically */
+    align-items: center;
+    gap: 5px;               /* spacing between elements */
+}
+
+/* Input field styling */
+table td form input[type="number"] {
+    width: 80px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+/* Select dropdown styling */
+table td form select {
+    width: 120px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Submit button styling */
+table td form button {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Optional: hover effect for button */
+table td form button:hover {
+    background-color: #c82333; /* darker red */
+    color: white;
+}
+
+/*notification badge*/
+
+
+.bg-orange {
+  background-color: orange !important;
+  color: white;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.blink {
+  animation: blink 1s infinite;
+}
+
+/*inventory*/
+/* Page title */
+.page-title {
+    font-weight: 700;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Table container */
+.table-container {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Table styling */
+.table th {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    text-align: center;
+    font-size: 1rem;
+    padding: 12px;
+}
+
+/* Hover effect on rows */
+.table-hover tbody tr:hover {
+    background-color: #f1f8ff;
+    transform: scale(1.01);
+    transition: 0.2s ease-in-out;
+}
+
+/* Back button */
+.back-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #1a73e8;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+.username {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/* How It Works */
+
+.howitworks-section {
+  background: linear-gradient(135deg, #f8f9fa, #eef2f3);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.howitworks-section h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  animation: fadeDown 1s ease-in-out;
+}
+
+.howitworks-section p {
+  font-size: 1.1rem;
+  color: #555;
+  animation: fadeUp 1.2s ease-in-out;
+}
+
+/* Cards */
+.how-card {
+  background: #fff;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.how-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #222;
+  font-weight: 600;
+}
+
+.how-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Hover Effects */
+.how-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.how-card:hover h4 {
+  color: #007bff;
+}
+
+.how-card:hover i {
+  transform: rotate(360deg);
+  transition: transform 0.6s ease;
+}
+
+/* Icon Styling */
+.how-card i {
+  font-size: 1.8rem;
+  margin-right: 8px;
+  transition: transform 0.4s ease;
+}
+
+/* Fade animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Entrance Animation for Cards */
+.how-card {
+  animation: fadeInScale 1s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Stagger animation delay */
+.how-card:nth-child(1) { animation-delay: 0.2s; }
+.how-card:nth-child(2) { animation-delay: 0.4s; }
+.how-card:nth-child(3) { animation-delay: 0.6s; }
+.how-card:nth-child(4) { animation-delay: 0.8s; }
+.how-card:nth-child(5) { animation-delay: 1s; }
+.how-card:nth-child(6) { animation-delay: 1.2s; }
+.how-card:nth-child(7) { animation-delay: 1.4s; }

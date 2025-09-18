@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'Styles/style.css' %}">
+</head>
+
+<body class="register-body">
+    <form class="form" method="POST" action="">
+        {% csrf_token %}
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+
+        <label>
+            <input class="input" type="text" name="username" required>
+            <span>Username</span>
+        </label>
+
+        <label>
+            <input class="input" type="email" name="email" required>
+            <span>Email</span>
+        </label>
+
+        <label>
+            <input class="input" type="password" name="password" required>
+            <span>Password</span>
+        </label>
+
+        <label>
+            <input class="input" type="password" name="confirm_password" required>
+            <span>Confirm password</span>
+        </label>
+
+        <button class="submit" type="submit">Submit</button>
+        <p class="signin">Already have an account? <a href="{% url 'login' %}">Signin</a> </p>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Grocery Item</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Your custom styles -->
+  <link rel="stylesheet" href="{% static 'Styles/style.css' %}">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-xl navbar-light" style="background-color: #a9cae3;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/icon.jpg' %}" alt="Logo" width="80" height="80" class="d-inline-block align-text-top">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="{% url 'index' %}"><b>Home</b></a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'about' %}"><b>About</b></a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><b>Features</b></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Functionality</a></li>
+            <li><a class="dropdown-item" href="#">How it works</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}"><b>Contact Us</b></a></li>
+      </ul>
+      <div class="d-flex">
+        <a href="{% url 'view_item' %}" class="btn btn-outline-success me-2">View Item</a>
+        <a href="{% url 'profile' %}" class="btn btn-outline-primary">Profile</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Form Section -->
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="form-container add-item-page p-4 shadow rounded bg-light" style="width: 100%; max-width: 500px;">
+    <h2 class="form-title text-center mb-4" style="color: green">Add New Grocery Item</h2>
+    <form action="{% url 'add_item' %}" method="POST" class="add-item-form">
+      {% csrf_token %}
+      <div class="form-group mb-3">
+        <label for="name" class="form-label">Product Name:</label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" name="category" class="form-control" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="quantity" class="form-label">Quantity:</label>
+        <input type="number" name="quantity" class="form-control" required>
+      </div>
+      <!-- ✅ New Price Field -->
+      <div class="form-group mb-3">
+        <label for="price" class="form-label">Price (₹):</label>
+        <input type="number" step="0.01" name="price" class="form-control" required>
+      </div>
+        <div class="form-group mb-3">
+        <label for="mrp" class="form-label">MRP:</label>
+        <input type="number" step="0.01" name="mrp" class="form-control" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="purchase" class="form-label">Purchase Date:</label>
+        <input type="date" name="purchase" class="form-control" required>
+      </div>
+      <div class="form-group mb-3">
+        <label for="expiry" class="form-label">Expiry Date:</label>
+        <input type="date" name="expiry" class="form-control" required>
+      </div>
+      <div class="form-group mb-4">
+        <label for="supplier" class="form-label">Supplier:</label>
+        <input type="text" name="supplier" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary w-100">➕ Add Item</button>
+    </form>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Logged Items</title>
+      <link rel="stylesheet" href="{% static 'Styles/style.css' %}">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* General body styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Page heading */
+        h2 {
+            font-weight: 700;
+            color: #343a40;
+        }
+
+        /* Table styling */
+        .table {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .table th {
+            text-align: center;
+            vertical-align: middle;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        /* Hover effect */
+        .table-hover tbody tr:hover {
+            background-color: #f1f3f5;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Alert box customization */
+        .alert {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Badge styling for reasons */
+        .badge {
+            font-size: 14px;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+        /* Specific reason badges */
+        .badge-expired {
+            background-color: #dc3545; /* red */
+            color: white;
+        }
+        .badge-damaged {
+            background-color: #ffc107; /* yellow */
+            color: #212529;
+        }
+        .badge-manual {
+            background-color: #6c757d; /* gray */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-xl navbar-light" style="background-color: #a9cae3;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/icon.jpg' %}" alt="Logo" width="80" height="80">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><b>Profile</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'view_item' %}"><b>View Item</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'expiring_soon' %}"><b>Expiring Item</b></a></li>
+                <li class="nav-item"><a class="nav-link active" href="{% url 'waste_logged' %}"><b>Wasted</b></a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Waste Logged Items</h2>
+
+        {% if wasted_items %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Quantity Wasted</th>
+                        <th scope="col">Reason</th>
+                        <th scope="col">Waste Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in wasted_items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+                            {% if item.reason == "expired" %}
+                                <span class="badge badge-expired">Expired</span>
+                            {% elif item.reason == "damaged" %}
+                                <span class="badge badge-damaged">Damaged</span>
+                            {% elif item.reason == "manual" %}
+                                <span class="badge badge-manual">Manually Discarded</span>
+                            {% else %}
+                                <span class="badge bg-light text-dark">{{ item.reason }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.waste_date|date:"d M Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info text-center">
+            No wasted items have been logged yet.
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
